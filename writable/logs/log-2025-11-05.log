@@ -1,0 +1,37 @@
+DEBUG - 2025-11-05 01:30:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:31:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:32:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-11-05 01:32:33 --> Error: Class "Config\ValidationRules" not found
+[Method: POST, Route: register]
+in SYSTEMPATH\Validation\Validation.php on line 726.
+ 1 SYSTEMPATH\Validation\Validation.php(122): CodeIgniter\Validation\Validation->loadRuleSets()
+ 2 SYSTEMPATH\Config\Services.php(840): CodeIgniter\Validation\Validation->__construct(Object(Config\Validation), Object(CodeIgniter\View\View))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::validation(Object(Config\Validation), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('validation', [...])
+ 5 SYSTEMPATH\Config\Services.php(835): CodeIgniter\Config\BaseService::getSharedInstance('validation', null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::validation()
+ 7 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('validation', [])
+ 8 SYSTEMPATH\Common.php(995): CodeIgniter\Config\BaseService::get('validation')
+ 9 SYSTEMPATH\Controller.php(161): service('validation')
+10 SYSTEMPATH\Controller.php(136): CodeIgniter\Controller->setValidator([...], [])
+11 VENDORPATH\myth\auth\src\Controllers\AuthController.php(154): CodeIgniter\Controller->validate([...])
+12 SYSTEMPATH\CodeIgniter.php(933): Myth\Auth\Controllers\AuthController->attemptRegister()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(Myth\Auth\Controllers\AuthController))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+DEBUG - 2025-11-05 01:40:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-11-05 01:40:52 --> ErrorException: Could not check compatibility between Myth\Auth\Authentication\Passwords\CompositionValidator::check(string $password, ?CodeIgniter\Entity\Entity $user = null): bool and Myth\Auth\Authentication\Passwords\ValidatorInterface::check(string $password, ?CodeIgniter\Entity $user = null): bool, because class CodeIgniter\Entity is not available
+[Method: POST, Route: register]
+in VENDORPATH\myth\auth\src\Authentication\Passwords\CompositionValidator.php on line 28.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+DEBUG - 2025-11-05 01:44:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:44:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 01:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-05 08:20:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

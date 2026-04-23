@@ -1,0 +1,127 @@
+CRITICAL - 2025-09-10 05:21:08 --> ErrorException: preg_match(): Compilation failed: missing closing parenthesis at offset 10
+[Method: GET, Route: pages]
+in SYSTEMPATH\Router\Router.php on line 436.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match(): Compilation failed: missing closing parenthesis at offset 10', 'C:\\xampp\\htdocs\\CI\\system\\Router\\Router.php', 436)
+ 2 SYSTEMPATH\Router\Router.php(436): preg_match('#^buku:(.*$#u', 'pages', [])
+ 3 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('pages')
+ 4 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('pages')
+ 5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:27:39 --> ErrorException: preg_match(): Compilation failed: missing closing parenthesis at offset 10
+[Method: GET, Route: pages]
+in SYSTEMPATH\Router\Router.php on line 436.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match(): Compilation failed: missing closing parenthesis at offset 10', 'C:\\xampp\\htdocs\\CI\\system\\Router\\Router.php', 436)
+ 2 SYSTEMPATH\Router\Router.php(436): preg_match('#^buku:(.*$#u', 'pages', [])
+ 3 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('pages')
+ 4 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('pages')
+ 5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:32:21 --> ErrorException: preg_match(): Compilation failed: missing closing parenthesis at offset 10
+[Method: GET, Route: pages]
+in SYSTEMPATH\Router\Router.php on line 436.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match(): Compilation failed: missing closing parenthesis at offset 10', 'C:\\xampp\\htdocs\\CI\\system\\Router\\Router.php', 436)
+ 2 SYSTEMPATH\Router\Router.php(436): preg_match('#^buku:(.*$#u', 'pages', [])
+ 3 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('pages')
+ 4 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('pages')
+ 5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:32:34 --> ErrorException: preg_match(): Compilation failed: missing closing parenthesis at offset 10
+[Method: GET, Route: buku]
+in SYSTEMPATH\Router\Router.php on line 436.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match(): Compilation failed: missing closing parenthesis at offset 10', 'C:\\xampp\\htdocs\\CI\\system\\Router\\Router.php', 436)
+ 2 SYSTEMPATH\Router\Router.php(436): preg_match('#^buku:(.*$#u', 'buku', [])
+ 3 SYSTEMPATH\Router\Router.php(213): CodeIgniter\Router\Router->checkRoutes('buku')
+ 4 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('buku')
+ 5 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:37:50 --> Error: Class "App\Controllers\BukuModel\BaseController" not found
+[Method: GET, Route: buku]
+in APPPATH\Controllers\buku.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(315): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\CI\\app\\Controllers\\Buku.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Buku')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Buku')
+ 5 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Buku', true)
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:40:07 --> ErrorException: Undefined variable $id_buku
+[Method: GET, Route: buku]
+in APPPATH\Models\BukuModel.php on line 14.
+ 1 APPPATH\Models\BukuModel.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_buku', 'C:\\xampp\\htdocs\\CI\\app\\Models\\BukuModel.php', 14)
+ 2 APPPATH\Controllers\buku.php(20): App\Models\BukuModel->getBuku()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+CRITICAL - 2025-09-10 05:42:09 --> Error: Call to undefined method CodeIgniter\View\View::extends()
+[Method: GET, Route: buku]
+in APPPATH\Views\buku\index.php on line 1.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('buku/index', [], true)
+ 4 APPPATH\Controllers\buku.php(23): view('buku/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+DEBUG - 2025-09-10 06:14:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-09-10 06:14:47 --> Error: Call to undefined method CodeIgniter\View\View::extends()
+[Method: GET, Route: buku/detail/1]
+in APPPATH\Views\buku\detail.php on line 1.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('buku/detail', [], true)
+ 4 APPPATH\Controllers\buku.php(33): view('buku/detail', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->detail('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+DEBUG - 2025-09-10 06:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:18:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:18:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:23:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:35:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:35:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:35:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:36:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:47:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:51:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 06:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 07:22:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 09:09:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 09:09:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 09:09:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-09-10 09:10:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

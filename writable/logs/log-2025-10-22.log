@@ -1,0 +1,26 @@
+DEBUG - 2025-10-22 04:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 04:16:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 04:17:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-22 04:17:21 --> Error: Class "Config\ValidationRules" not found
+[Method: GET, Route: buku/tambah]
+in SYSTEMPATH\Validation\Validation.php on line 726.
+ 1 SYSTEMPATH\Validation\Validation.php(122): CodeIgniter\Validation\Validation->loadRuleSets()
+ 2 SYSTEMPATH\Config\Services.php(840): CodeIgniter\Validation\Validation->__construct(Object(Config\Validation), Object(CodeIgniter\View\View))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::validation(Object(Config\Validation), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('validation', [...])
+ 5 SYSTEMPATH\Config\Services.php(835): CodeIgniter\Config\BaseService::getSharedInstance('validation', null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::validation()
+ 7 APPPATH\Controllers\Buku.php(52): CodeIgniter\Config\BaseService::__callStatic('validation', [])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->tambah()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\CI\\public\\index.php')
+DEBUG - 2025-10-22 04:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 04:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 04:23:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 04:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 05:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-22 05:21:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
