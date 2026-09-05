@@ -18,7 +18,7 @@ class BukuModel extends Model
         return $this->where(['id_buku' => $idbuku])->first();
     }
     public function findBuku($cari){ //fungsi pencarian
-        return $this->table('buku')->like('judul', $cari); //like bahasa filter atau biasa disebut Where 
+        return $this->like('judul', $cari)->findAll(); //jalankan query dan kembalikan array hasil
     }
 }
 ?>

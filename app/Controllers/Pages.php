@@ -4,10 +4,16 @@ namespace App\Controllers;
 
 class Pages extends BaseController
 {
-    public function index(): void
+    public function index()
     {
-        echo view('layout/header');
-        echo view('layout/home');
-        echo view('layout/footer');
+        $bukuModel = new \App\Models\BukuModel();
+
+        $data = [
+            'title'     => 'Katalog Buku',
+            'buku'      => $bukuModel->orderBy('id_buku', 'DESC')->findAll(8),
+            'totalBuku' => $bukuModel->countAll(),
+        ];
+
+        return view('layout/home', $data);
     }
 }

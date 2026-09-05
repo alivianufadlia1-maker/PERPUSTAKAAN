@@ -15,20 +15,21 @@ class Buku extends BaseController
 
     public function index()
     {
-        $current=$this->request->getVar('page_buku')?? 1;
-        $cari = $this->request->getVar('cari');
+        $current = $this->request->getVar('page_buku') ?? 1;
+        $cari    = $this->request->getVar('cari');
 
-        if ($cari){
-            $buku = $this->BukuModel->findBuku($cari);
-            $pager = null;
-        }else {
-                $buku = $this->BukuModel->paginate(2, 'buku');
-            }
-        
+        if ($cari) {
+            $buku  = $this->BukuModel->findBuku($cari);
+            $pager = null; // hasil search tidak dipaginasi
+        } else {
+            $buku  = $this->BukuModel->paginate(2, 'buku');
+            $pager = $this->BukuModel->pager;
+        }
+
         $data = [
-            'title' => 'Daftar Buku',
-            'buku' => $this->BukuModel->paginate(2, 'buku'),
-            'pager' => $this->BukuModel->pager,
+            'title'   => 'Daftar Buku',
+            'buku'    => $buku,
+            'pager'   => $pager,
             'current' => $current
         ];
 
@@ -37,9 +38,35 @@ class Buku extends BaseController
 
     public function detail($idbuku)
     {
+        $session = session();
+        $buku    = $this->BukuModel->getBuku($idbuku);
+
+        $PeminjamanModel = new \App\Models\PeminjamanModel();
+
+        // Ringkasan riwayat peminjaman buku + estimasi ketersediaan (untuk badge & section admin).
+        $ringkasanPinjam = ['total' => 0, 'riwayat' => []];
+        $estimasiTersedia = null;
+        if (! empty($buku)) {
+            $ringkasanPinjam = $PeminjamanModel->ringkasanPeminjamanBuku($buku['id_buku']);
+            $ringkasanPinjam['riwayat'] = array_map(function (array $row) use ($PeminjamanModel) {
+                return $row + ['status_tampil' => $PeminjamanModel->statusAktual($row)];
+            }, $ringkasanPinjam['riwayat']);
+            $estimasiTersedia = $PeminjamanModel->estimasiTersedia($buku['id_buku']);
+        }
+
+        // Denda belum bayar milik anggota yang login (untuk reminder, tidak memblokir peminjaman).
+        $dendaAnggota = 0;
+        if ($session->get('role') === 'anggota') {
+            $dendaAnggota = $PeminjamanModel->totalDendaBelumBayarAnggota($session->get('id_anggota'));
+        }
+
         $data = [
-            'title' => 'Detail Buku',
-            'buku' => $this->BukuModel->getBuku($idbuku)
+            'title'            => 'Detail Buku',
+            'buku'             => $buku,
+            'bukuTersedia'     => ($estimasiTersedia === null),
+            'estimasiTersedia' => $estimasiTersedia,
+            'ringkasanPinjam'  => $ringkasanPinjam,
+            'dendaAnggota'     => $dendaAnggota,
         ];
 
         return view('buku/detail', $data);
