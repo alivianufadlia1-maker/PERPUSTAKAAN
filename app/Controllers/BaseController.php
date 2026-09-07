@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\SessionGuard;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -54,6 +55,13 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = service('session');
-        ('session');
+
+        // Validasi sesi pada SEMUA halaman (termasuk publik): sesi "login" yang
+        // tidak lagi valid (file lama sisa restart server, atau user sudah
+        // dihapus dari database) dihancurkan, sehingga navbar tidak pernah
+        // menampilkan nama user untuk pengunjung yang sebenarnya tamu.
+        if (! is_cli()) {
+            SessionGuard::validate();
+        }
     }
 }

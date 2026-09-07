@@ -11,6 +11,12 @@ Tidak ada dependency Node; yang dibutuhkan hanyalah PHP CLI + MySQL lokal.
    composer install
    ```
 3. **Database**: buat database `db_pustaka` di MySQL lokal (kredensial default `root` tanpa password — lihat `app/Config/Database.php`; tidak ada file `.env` yang perlu disalin).
+   - Jika MySQL belum jalan (misal setelah restart mesin — XAMPP tidak auto-start), jalankan detached:
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .freebuff\start_mysql.ps1
+   ```
+   (isi script: `Start-Process C:\xampp\mysql\bin\mysqld.exe --defaults-file=C:\xampp\mysql\bin\my.ini --standalone`).
+   - Jika muncul status login aneh (nama user tampil tanpa login), hapus sesi lama: `rm -f writable/session/ci_session*`. Sejak SessionGuard ditambahkan, sesi hantu seperti ini juga otomatis dihancurkan oleh aplikasi.
 4. **Migrasi & seeder** (sekali saja):
    ```bash
    php spark migrate

@@ -1,0 +1,2 @@
+$p = Start-Process -FilePath 'C:\xampp\php\php.exe' -ArgumentList 'spark','serve','--port','8080','--host','127.0.0.1' -WorkingDirectory 'C:\xampp\htdocs\WEB - PERPUSTAKAAN' -RedirectStandardOutput 'C:\xampp\htdocs\WEB - PERPUSTAKAAN\.freebuff\preview-a9551154-e319-41cd-b8f1-cf08c61236ad.log' -RedirectStandardError 'C:\xampp\htdocs\WEB - PERPUSTAKAAN\.freebuff\preview-a9551154-e319-41cd-b8f1-cf08c61236ad.log.err' -WindowStyle Hidden -PassThru
+Write-Output $p.Id

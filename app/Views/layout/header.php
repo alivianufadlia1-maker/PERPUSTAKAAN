@@ -219,6 +219,82 @@
             margin: 0.35rem 0.25rem;
         }
 
+        /* ===== Trigger akun (avatar + dropdown) ===== */
+        .account-trigger {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 !important;
+            padding: 5px 10px 5px 6px !important;
+            border: 1px solid var(--card-border);
+            border-radius: 50rem;
+            background: #fff;
+            transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* Sembunyikan caret bawaan Bootstrap, pakai ikon chevron sendiri */
+        .account-trigger::after,
+        .account-trigger.active::after {
+            display: none !important;
+        }
+
+        .account-trigger:hover,
+        .account-trigger:focus,
+        .account-trigger.active {
+            background: var(--primary-light) !important;
+            border-color: rgba(118, 75, 162, 0.35);
+            color: var(--primary-dark) !important;
+        }
+
+        .account-trigger .nama-user {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #444;
+            max-width: 140px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .account-trigger:hover .nama-user,
+        .account-trigger:focus .nama-user,
+        .account-trigger.active .nama-user {
+            color: var(--primary-dark);
+        }
+
+        /* Avatar bulat berisi inisial user */
+        .avatar-inisial {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(118, 75, 162, 0.3);
+        }
+
+        .avatar-inisial-lg {
+            width: 44px;
+            height: 44px;
+            font-size: 1.05rem;
+        }
+
+        /* Item Logout di dropdown akun berwarna merah */
+        .navbar .dropdown-item.text-danger {
+            color: #dc3545 !important;
+        }
+
+        .navbar .dropdown-item.text-danger:hover,
+        .navbar .dropdown-item.text-danger:focus {
+            background: #fdeaea;
+            color: #b02a37 !important;
+        }
+
         /* ===== Kartu ===== */
         .card {
             border: 1px solid var(--card-border);
@@ -240,6 +316,12 @@
             object-fit: cover;
             background: var(--primary-light);
             display: block;
+            transition: transform 0.35s ease;
+        }
+
+        /* Zoom halus pada sampul saat kartu di-hover */
+        .card-hover:hover .buku-cover {
+            transform: scale(1.05);
         }
 
         .buku-cover-sm {
@@ -371,6 +453,8 @@
     $isLoggedIn   = (bool) $sessLogin->get('is_logged_in');
     $roleLogin    = $sessLogin->get('role');
     $usernameLogin= $sessLogin->get('username');
+    // Inisial user untuk avatar di dropdown akun
+    $inisialLogin = $isLoggedIn ? strtoupper(substr((string) $usernameLogin, 0, 1)) : '';
     ?>
 
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -385,7 +469,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <!-- Menu navigasi utama -->
+                <ul class="navbar-nav me-auto align-items-lg-center gap-lg-1">
                     <?php if (! $isLoggedIn): ?>
                         <!-- Tamu -->
                         <li class="nav-item">
@@ -396,16 +481,6 @@
                         <li class="nav-item">
                             <a class="nav-link <?= $isBuku ? 'active' : ''; ?>" <?= $isBuku ? 'aria-current="page"' : ''; ?> href="/buku">
                                 <i class="bi bi-journal-bookmark"></i>Daftar Buku
-                            </a>
-                        </li>
-                        <li class="nav-item mt-2 mt-lg-0">
-                            <a class="btn btn-soft btn-sm w-100" href="/login">
-                                <i class="bi bi-box-arrow-in-right me-1"></i>Login
-                            </a>
-                        </li>
-                        <li class="nav-item mt-1 mt-lg-0">
-                            <a class="btn btn-primary btn-sm w-100" href="/register">
-                                <i class="bi bi-person-plus me-1"></i>Daftar
                             </a>
                         </li>
                     <?php elseif ($roleLogin === 'admin'): ?>
@@ -434,7 +509,7 @@
                             <a class="nav-link dropdown-toggle <?= $isLaporanStat ? 'active' : ''; ?>" href="#"
                                role="button" data-bs-toggle="dropdown" aria-expanded="false"
                                <?= $isLaporanStat ? 'aria-current="page"' : ''; ?>>
-                                <i class="bi bi-printer"></i>Laporan &amp; Statistik <i class="bi bi-chevron-down small ms-1"></i>
+                                <i class="bi bi-printer"></i>Laporan <i class="bi bi-chevron-down small ms-1"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
@@ -460,17 +535,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
-                            <span class="badge rounded-pill text-bg-primary me-2">
-                                <i class="bi bi-shield-fill-check me-1"></i>Admin
-                            </span>
-                            <span class="small fw-semibold text-body-secondary d-none d-lg-inline"><?= esc($usernameLogin); ?></span>
-                        </li>
-                        <li class="nav-item mt-2 mt-lg-0">
-                            <a class="btn btn-outline-danger btn-sm w-100" href="/logout">
-                                <i class="bi bi-box-arrow-right me-1"></i>Logout
-                            </a>
-                        </li>
                     <?php else: ?>
                         <!-- Anggota -->
                         <li class="nav-item">
@@ -484,11 +548,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $isProfil ? 'active' : ''; ?>" <?= $isProfil ? 'aria-current="page"' : ''; ?> href="/profil">
-                                <i class="bi bi-person-circle"></i>Profil Saya
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link <?= $isPeminjaman ? 'active' : ''; ?>" <?= $isPeminjaman ? 'aria-current="page"' : ''; ?> href="/peminjaman/riwayat">
                                 <i class="bi bi-clock-history"></i>Riwayat Peminjaman
                             </a>
@@ -498,16 +557,65 @@
                                 <i class="bi bi-cash-coin"></i>Denda Saya
                             </a>
                         </li>
-                        <li class="nav-item d-flex align-items-center mt-2 mt-lg-0">
-                            <span class="badge rounded-pill text-bg-light border me-2">
-                                <i class="bi bi-person-badge me-1"></i>Anggota
-                            </span>
-                            <span class="small fw-semibold text-body-secondary d-none d-lg-inline"><?= esc($usernameLogin); ?></span>
-                        </li>
-                        <li class="nav-item mt-2 mt-lg-0">
-                            <a class="btn btn-outline-danger btn-sm w-100" href="/logout">
-                                <i class="bi bi-box-arrow-right me-1"></i>Logout
+                    <?php endif; ?>
+                </ul>
+
+                <!-- Area akun (kanan) -->
+                <ul class="navbar-nav align-items-lg-center gap-lg-1 mt-2 mt-lg-0">
+                    <?php if (! $isLoggedIn): ?>
+                        <!-- Tamu: tombol login/daftar -->
+                        <li class="nav-item">
+                            <a class="btn btn-soft btn-sm w-100" href="/login">
+                                <i class="bi bi-box-arrow-in-right me-1"></i>Login
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm w-100" href="/register">
+                                <i class="bi bi-person-plus me-1"></i>Daftar
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <!-- Dropdown akun: avatar + nama sebagai trigger -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link account-trigger dropdown-toggle <?= $isProfil ? 'active' : ''; ?>"
+                               href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                               <?= $isProfil ? 'aria-current="page"' : ''; ?>>
+                                <span class="avatar-inisial"><?= esc($inisialLogin); ?></span>
+                                <span class="nama-user"><?= esc($usernameLogin); ?></span>
+                                <i class="bi bi-chevron-down small text-muted"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <div class="dropdown-item-text d-flex align-items-center gap-3 py-2">
+                                        <span class="avatar-inisial avatar-inisial-lg"><?= esc($inisialLogin); ?></span>
+                                        <div class="lh-sm">
+                                            <div class="fw-bold"><?= esc($usernameLogin); ?></div>
+                                            <?php if ($roleLogin === 'admin'): ?>
+                                                <span class="badge rounded-pill text-bg-primary mt-1">
+                                                    <i class="bi bi-shield-fill-check me-1"></i>Admin
+                                                </span>
+                                            <?php else: ?>
+                                                <span class="badge rounded-pill text-bg-light border mt-1">
+                                                    <i class="bi bi-person-badge me-1"></i>Anggota
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <?php if ($roleLogin === 'anggota'): ?>
+                                    <li>
+                                        <a class="dropdown-item <?= $isProfil ? 'active' : ''; ?>" href="/profil">
+                                            <i class="bi bi-person-circle"></i>Profil Saya
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="/logout">
+                                        <i class="bi bi-box-arrow-right"></i>Logout
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     <?php endif; ?>
                 </ul>
